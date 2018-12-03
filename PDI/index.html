@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PDI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="libs/angular.js"></script>
+    <script src="libs/js/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="libs/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="libs/css/style.css" />
+</head>
+
+<body ng-app="app" class="fundo" ng-controller="PdiCtrl" style="max-width:90%">
+    <nav class="navbar navbar-dark bg-dark" style="width:111%">
+                <a class="navbar-brand" href="#">PDI</a>
+                <div>
+                        <button class="btn btn-dark" ng-click="hc()">Haarcascade</button>
+                        <button class="btn btn-dark" ng-click="add()">Selecionar Imagem</button>
+                        <img src="libs/css/png/info-2x.png" class="ii">
+                </div>
+                
+    </nav>
+    <div class="row" style="margin-left:0.2%">
+        <div class="bg-dark tabela">
+            <table class="striped-table table">
+                <thead>
+                    <tr>
+                        <th class="tableTColor">
+                            Transformações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in options">
+                        <td class="tableColor" ng-click="call(x)">{{x}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-top:0.2%;width: 50%">
+            <div style="margin-left:10%;">
+                <b ng-show="init == true">
+                    Transformação Atual ("{{tr}}"):
+                </b>
+                <br>
+                <img src="{{ita}}" ng-show="init == true" style="width:512px;height:512px;border:solid 2px">
+                <br>
+                <br>
+                <table>
+                    <tr>
+                        <th ng-show="tr != 'Original'">
+                            Imagem original:
+                        </th>
+                        <th ng-show="ut != null">
+                            Ultima transformação ("{{ut}}"):
+                        </th>
+
+                    </tr>
+                    <tr>
+                        <td ng-show="tr != 'Original'">
+                            <img src="{{ip}}" style="width:256px;height:256px;border:solid 2px">
+                        </td>
+                        <td ng-show="ut != null">
+                            <img src="{{iut}}" style="width:256px;height:256px;border:solid 2px;margin-left: 5%">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+        </div>
+        <div style="width: 20%" ng-show="init == true">
+            <b style="margin-left:80%">
+                Fluxo:
+            </b>
+            <table style="margin-left:80%">
+                <tr ng-repeat="y in images track by $index" class="fluxo">
+                    <td>
+                            {{y}}
+                            <br>
+                            <img src="images/img{{images.length - $index - 1}}.png" style="width:128px;height:128px;border:solid 2px;">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>   
+</body>
+
+</html>

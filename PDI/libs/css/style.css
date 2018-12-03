@@ -1,0 +1,35 @@
+.fundo{
+    background-color: darkgrey;
+}
+
+.tabela{
+    width: 30%;
+    height: fit-content;
+    max-height: fit-content;
+}
+
+.tableTColor{
+    color: white;
+    font-size: 102%;
+}
+
+.tableColor{
+    color: white;
+}
+
+.tableColor:hover{
+    color: orangered;
+    cursor: pointer;
+}
+
+.ii { 
+    cursor: pointer;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.fluxo{
+    height: fit-content;
+    max-height: 10%;
+    overflow-y: scroll;
+}
